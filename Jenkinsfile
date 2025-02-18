@@ -1,6 +1,6 @@
 node {
     def application = "pythonapp"
-    def dockerhubaccountid = "nyukeit"
+    def dockerhubaccountid = "erisjat"
     stage('Clone repository') {
         checkout scm
     }
@@ -10,7 +10,7 @@ node {
     }
 
     stage('Push image') {
-        withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) {
+        withDockerRegistry([ credentialsId: "jenkins-hubdocker", url: "" ]) {
         app.push()
         app.push("latest")
     }
