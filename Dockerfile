@@ -1,9 +1,10 @@
-FROM python:3.8
-WORKDIR /src
-COPY . /src
-RUN pip install flask
-RUN pip install flask_restful
-EXPOSE 8081
-ENTRYPOINT ["python"]
-CMD ["./src/helloworld.py"]
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+FROM python:3.12-slim-buster
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "app.py"]
