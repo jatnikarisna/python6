@@ -1,5 +1,5 @@
 node {
-    def application = "pythonapp"
+    def application = "pythonapp1"
     def dockerhubaccountid = "erisjat"
     stage('Clone repository') {
         checkout scm
@@ -17,7 +17,7 @@ node {
     }
 
     stage('Deploy') {
-        sh ("docker run -p 8081:8081 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
+        sh ("docker run -p 5050:5050 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
     stage('Remove old images') {
