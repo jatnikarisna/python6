@@ -17,6 +17,7 @@ node {
     }
 
     stage('Deploy') {
+        sh ("docker kill $(docker ps -q --filter "expose=$PORT_TO_KILL")")
         sh ("docker run -p 5000:5000 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
