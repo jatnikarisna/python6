@@ -6,3 +6,4 @@ RUN pip install flask_restful
 EXPOSE 3333
 ENTRYPOINT ["python"]
 CMD ["./src/helloworld.py"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
