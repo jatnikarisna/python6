@@ -17,7 +17,7 @@ node {
     }
 
     stage('Deploy') {
-        sh ("docker run -p 82:8080 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
+        sh ("docker run -p 81:8080 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
     stage('Remove old images') {
