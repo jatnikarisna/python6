@@ -17,7 +17,6 @@ node {
     }
 
     stage('Deploy') {
-        sh ("docker kill python")
         sh ("docker run -p 5000:5000 --name python -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
