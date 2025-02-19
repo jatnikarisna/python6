@@ -17,8 +17,8 @@ node {
     }
 
     stage('Deploy') {
-        sh ("docker kill $(docker ps -q --filter "expose=$PORT_TO_KILL")")
-        sh ("docker run -p 5000:5000 -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
+        sh ("docker kill python")
+        sh ("docker run -p 5000:5000 --name python -d ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
     }
 
     stage('Remove old images') {
