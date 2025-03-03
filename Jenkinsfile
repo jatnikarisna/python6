@@ -1,5 +1,5 @@
 node {
-    def application = "pythonapp3"
+    def application = "pythonapp4"
     def dockerhubaccountid = "erisjat"
     stage('Clone repository') {
         checkout scm
